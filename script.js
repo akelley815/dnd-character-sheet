@@ -6,9 +6,41 @@ function updateModifier(stat) {
     let value = document.getElementById(stat).value;
     let mod = calculateModifier(value || 0);
 
-    document.getElementById(stat + "_mod").innerText = mod >= 0 ? "+" + mod : mod;
+    document.getElementById(stat + "_mod").innerText =
+        mod >= 0 ? "+" + mod : mod;
 }
 
+/*
+🎲 Roll 4d6 and drop the lowest
+*/
+function rollStat() {
+    let rolls = [];
+
+    for (let i = 0; i < 4; i++) {
+        rolls.push(Math.floor(Math.random() * 6) + 1);
+    }
+
+    rolls.sort((a, b) => a - b); // smallest first
+    rolls.shift(); // remove lowest
+
+    let total = rolls.reduce((sum, val) => sum + val, 0);
+
+    return total;
+}
+
+/*
+🎲 Assign rolled value to a stat
+*/
+function rollForStat(stat) {
+    const value = rollStat();
+
+    document.getElementById(stat).value = value;
+    updateModifier(stat);
+}
+
+/*
+💾 Save Character
+*/
 function saveCharacter() {
     const character = {
         name: document.getElementById("name").value,
@@ -27,10 +59,12 @@ function saveCharacter() {
     };
 
     localStorage.setItem("dndCharacter", JSON.stringify(character));
-
     alert("Character Saved!");
 }
 
+/*
+📂 Load Character
+*/
 function loadCharacter() {
     const data = localStorage.getItem("dndCharacter");
 
