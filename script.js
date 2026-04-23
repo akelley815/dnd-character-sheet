@@ -58,6 +58,11 @@ function saveCharacter() {
         }
     };
 
+    if (!character.class || !character.race || !character.level) {
+        alert("Please select Class, Race, and Level.");
+        return;
+    }
+
     localStorage.setItem("dndCharacter", JSON.stringify(character));
     alert("Character Saved!");
 }
