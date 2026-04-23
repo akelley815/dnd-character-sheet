@@ -43,3 +43,35 @@ input:focus, select:focus {
     border: 1px solid #007BFF;
     box-shadow: 0 0 5px rgba(0,123,255,0.5);
 }
+.stat-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    gap: 10px;
+}
+
+.stat-row label {
+    width: 100px;
+}
+
+.stat-row input {
+    width: 70px;
+    text-align: center;
+}
+
+.modifier-box {
+    width: 70px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+}
+
+.stat-row button {
+    padding: 5px 10px;
+}
