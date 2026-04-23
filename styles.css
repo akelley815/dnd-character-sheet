@@ -23,7 +23,7 @@ input {
     width: 80%;
 }
 
-.stat {
+.stat-row {
     display: flex;
     justify-content: space-between;
     margin: 5px 0;
