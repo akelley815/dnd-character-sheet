@@ -84,3 +84,13 @@ function loadCharacter() {
 }
 
 window.onload = loadCharacter;
+function resetCharacter() {
+    localStorage.removeItem("dndCharacter");
+
+    document.querySelectorAll("input").forEach(input => input.value = "");
+
+    const mods = document.querySelectorAll("span[id$='_mod']");
+    mods.forEach(mod => mod.innerText = "0");
+
+    alert("Character Reset!");
+}
